@@ -14,7 +14,7 @@ Installation:
 
 **Using git:**
 
-You will need the plugin. Using git, 
+You will need the Vendor. Using git, 
 something like this:
 
 	git clone git@github.com:miheretab/CakePHP-Google-Import-Contact.git APP/Vendor/GoogleOauth  
@@ -37,7 +37,9 @@ Configure::write('Google.clientSecret', 'GOOGLE CLIENT SECRET');
 Usage
 -----
 
+```php
 App::uses('GoogleOauth', 'Vendor');
+```
 
 -------------
 
@@ -45,6 +47,7 @@ Example:
 
 Create these function in your controller
 
+```php
 public function index() { //you can name the function as you like
 
 	$clientId = Configure::read('Google.clientId');
@@ -52,7 +55,17 @@ public function index() { //you can name the function as you like
 	$this->set('clientId', $clientId);
 	$this->set('redirectUri', $redirectUri);
 }
+```
 
+make button in index.ctp (view for the above funciton)
+
+```php
+<?php echo $this->Html->link(__('Import Gmail Contacts'), 'https://accounts.google.com/o/oauth2/auth?client_id=' . $clientId . '&redirect_uri=' . $redirectUri . '&scope=https://www.google.com/m8/feeds/&response_type=code', array('class' => 'btn btn-info')); ?>
+```
+
+you can create your oen view for the funcit on below as you need
+
+```php
 public function gmail() { //you can name the function as you like
 	if (isset($this->request->query['code'])) {
 		$google = new GoogleOauth(); 
@@ -74,4 +87,4 @@ public function gmail() { //you can name the function as you like
 		}
 	}
 }
-
+```

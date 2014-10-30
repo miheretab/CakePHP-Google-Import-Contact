@@ -26,7 +26,8 @@ class GoogleOauth {
 	}
 
 	/*
-	* secured with new google oauth
+	* secured with new google oauth https://developers.google.com/google-apps/contacts/v3/
+	* client id and secret id needed here
 	*/
 	public function getContacts($auth_code, $client_id, $client_secret, $redirect_uri, $max_results = 5000) {				
 		$fields=array(
@@ -90,6 +91,8 @@ class GoogleOauth {
 	
 	/*
 	* less secured with new google oauth
+	* for this user have to enable https://www.google.com/settings/security/lesssecureapps
+	* no client id and secret id needed here, only username and password
 	*/
 	public function getGmailContacts($username, $password, $max_results = 5000) {
 		$email = $username . "@gmail.com";
