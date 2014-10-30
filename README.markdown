@@ -41,7 +41,7 @@ Usage
 App::uses('GoogleOauth', 'Vendor');
 ```
 
------------------------------------
+--------
 
 Example:
 --------
@@ -61,7 +61,7 @@ public function index() { //you can name the function as you like
 make button in index.ctp (view for the above funciton)
 
 ```php
-<?php echo $this->Html->link(__('Import Gmail Contacts'), 'https://accounts.google.com/o/oauth2/auth?client_id=' . $clientId . '&redirect_uri=' . $redirectUri . '&scope=https://www.google.com/m8/feeds/&response_type=code', array('class' => 'btn btn-info')); ?>
+<?php echo $this->Html->link(__('Import Gmail Contacts'), 'https://accounts.google.com/o/oauth2/auth?client_id=' . $clientId . '&redirect_uri=' . $redirectUri . '&scope=https://www.google.com/m8/feeds/&response_type=code'); ?>
 ```
 
 you can create your oen view for the funcit on below as you need
@@ -83,7 +83,7 @@ public function gmail() { //you can name the function as you like
 		
 			$contacts = $result['contacts']; //here is list of contacts imported
 			$this->set('contacts', $contacts); 
-			$this->set('senderEmail', $result['ownerEmail']); //here is owner email (selected when authenticated)
+			$this->set('ownerEmail', $result['ownerEmail']); //here is owner email (selected when authenticated)
 			
 		}
 	}
