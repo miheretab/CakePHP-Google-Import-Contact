@@ -1,5 +1,5 @@
 Google Oauth Import Contact Vendor
-========================
+==================================
 
 This is a simple vendor file that interfaces a CakePHP app with Google OAuth Contact API version 3.0<br/>
 Google Contact API version 3.0 can be seen https://developers.google.com/google-apps/contacts/v3/
@@ -41,9 +41,10 @@ Usage
 App::uses('GoogleOauth', 'Vendor');
 ```
 
--------------
+-----------------------------------
 
 Example:
+--------
 
 Create these function in your controller
 
